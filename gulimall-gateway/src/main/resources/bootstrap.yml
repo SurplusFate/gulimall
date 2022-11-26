@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: gateway
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 39.108.190.63:8848
+      config:
+        server-addr: 39.108.190.63:8848
+        file-extension: yml
+        group: gateway

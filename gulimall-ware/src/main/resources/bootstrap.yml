@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: ware
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 39.108.190.63:8848
+      config:
+        server-addr: 39.108.190.63:8848
+        ext-config:
+          - data-id: public.yml
+            group: public
+            refresh: true
+        file-extension: yml
+        group: ware
