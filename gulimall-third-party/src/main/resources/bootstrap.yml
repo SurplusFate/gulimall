@@ -1,3 +1,4 @@
+
 spring:
   application:
     name: third-party
@@ -13,3 +14,5 @@ spring:
             refresh: true
         file-extension: yml
         group: third-party
+server:
+  port: 888
