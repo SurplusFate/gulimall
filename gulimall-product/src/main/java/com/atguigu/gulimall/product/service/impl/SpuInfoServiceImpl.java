@@ -134,7 +134,6 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
             log.error("远程保存spu积分信息失败");
         }
 
-
         //5、保存当前spu对应的所有sku信息；
 
         List<Skus> skus = vo.getSkus();
@@ -197,8 +196,6 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                         log.error("远程保存sku优惠信息失败");
                     }
                 }
-
-
             });
         }
     }
@@ -274,6 +271,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                 }).collect(Collectors.toList());
 
         List<Long> skuIdList = skuInfoEntities.stream().map(SkuInfoEntity::getSkuId).collect(Collectors.toList());
+
         // TODO 1、发送远程调用，库存系统查询是否有库存
         Map<Long, Boolean> stockMap = null;
         try {
@@ -329,7 +327,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         if (r.getCode() == 0) {
             // 远程调用成功
             // TODO 6、修改当前spu的状态
-            this.baseMapper.updaSpuStatus(spuId, ProductConstant.ProductStatusEnum.SPU_UP.getCode());
+            this.baseMapper.updateSpuStatus(spuId, ProductConstant.ProductStatusEnum.SPU_UP.getCode());
         } else {
             // 远程调用失败
             // TODO 7、重复调用？接口幂等性:重试机制

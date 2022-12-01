@@ -15,5 +15,5 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface SpuInfoDao extends BaseMapper<SpuInfoEntity> {
 
-    void updaSpuStatus(@Param("spuId") Long spuId, @Param("code") int code);
+    void updateSpuStatus(@Param("spuId") Long spuId, @Param("code") int code);
 }
